@@ -39,3 +39,42 @@ Hello = "안녕"
 _and_ = "언더스코어 그리고 언더스코어"
 
 # === 선택 명명 규칙 === #
+# 3-4) 영어 변수명 사용 권장 (한글 변수명 사용 가능)
+이름 = "이승아"
+
+# 3-5) 소문자 사용 권장 (대문자 사용 가능)
+apple_banana_mango = "사과바나나망고"
+
+# 3-6) lower_snake_case 권장 (lowerCamelCase 사용 가능)
+# : 전체 이름을 소문자로 사용 + 단어와 단어 사이를 _(언더스코어)로 구분
+
+# cf) lowerCamelCase
+#       : 전체 이름을 소문자로 사용 + 단어와 단어 사이의 시작 키워드를 대문자로 지정
+
+# cf) lower(소문자) VS upper(대문자)
+
+student_name = "이도경"
+user_password = 1234
+
+studentName = "이지희"
+userPassword = 5678
+
+# 3-7) 의미 있는 변수명 지정 권장
+
+# 이름(name), 학원명(academy), 강사(instructor), 강의(lecture)
+
+# 안녕하세요. 저는 "이름"입니다.
+# "코리아IT아카데미"에서 "이승아"강사님께 "파이썬"강의를 수강 중입니다.
+
+# cf) print() 내부에서 문자열과 변수를 함께 쓰고자 하는 경우 +(덧셈) 기호를 사용
+
+name = "이도경"
+academy = "코리아IT아카데미"
+instructor = "이승아"
+lecture = "파이썬"
+
+print("안녕하세요. 저는 " + name + "입니다.")
+print(academy + "에서 " + instructor + "강사님께 " + lecture + " 강의를 수강 중입니다.")
+# 출력 단축키: ctrl + shift + f10
+
+name = "이승아" # 재할당: 변수(그릇)에 다시 데이터(값)를 넣는 것
