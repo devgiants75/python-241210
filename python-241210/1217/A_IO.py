@@ -26,7 +26,11 @@ print(sum) # 800
 # 거스름돈 계산: 금액은 정수로 표현
 # 사용자로부터 구매 금액 입력 purchase_amount
 # 사용자로부터 지불 금액 입력 payment_amount
+purchase_amount = int(input('구매 금액을 입력하세요.'))
+payment_amount = int(input('지불 금액을 입력하세요.'))
 
 # 거스름돈을 계산 change
+change = payment_amount - purchase_amount
 
 # >>> 출력: purchase_amount원의 물건 구매에 payment_amount원을 지불하여 change원의 거스름돈이 발생하였습니다.
+print(f'{purchase_amount}원의 물건 구매에 {payment_amount}원을 지불하여 {change}원의 거스름돈이 발생')
