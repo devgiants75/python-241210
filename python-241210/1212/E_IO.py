@@ -39,3 +39,64 @@ job = "IT 강사"
 hobby = "운동"
 height = 169.2
 print(name, job, hobby, height, sep=": ") # 이승아: IT 강사: 운동: 169.2
+
+# 2) 포맷팅을 사용한 출력
+# : 문자열 내에 변수나 값의 내용을 삽입하는 방법
+
+# 1. %연산자 포맷팅
+# : 문자열 내에 % 기호를 사용하여 특정 포맷 코드를 삽입해 해당 위체에 변수나 값을 삽입
+
+# == 포맷 코드 ==
+# %s: 문자열(모든 데이터 가능), %d: 정수, %f: 실수(부동 소수점 숫자)
+
+# cf) %f: 사용하고자 하는 소수점 자리 수를 명시
+#       - %.2f: 소수점 두 번째 자리까지
+
+language = 'python'
+print('Hello, %s' %language) # Hello, python
+
+name = '이승아'
+age = 50
+# print('My name is %d' %name) - %d 포맷코드 위치에는 정수값만 들어올 수 있음!
+print('My name is %s, I\'m %d years old' %(name, age)) # My name is 이승아, I'm 50 years old
+
+# % 기호 그대로를 출력하고자 하는 경우
+# : %% - % 기호 그대로를 사용
+print('100% 유기농 우유')
+print('100%%strawberry %s' %'딸기')
+
+# %.Nf (N자리에 소수점 자리 수의 양의 정수가 들어감)
+print('이승아의 키는 %.1f' %169.23456)
+
+# %연산자 포맷팅은 여러 가지 타입의 포맷 코드를 사용, 순서와 값의 혼란이 가중되어 많이 쓰이지 않음!
+
+# 2. format() 함수 사용
+# : 문자열 내에 {}중괄호 자리에 값을 삽입하는 방법
+print('Hello, {}'.format('이승아')) # Hello, 이승아
+welcome_message = 'Hello, {}'.format('이도경')
+print(welcome_message) # Hello, 이도경
+
+print('{} {} {} {}'.format('I', "have", 4, "apples")) # I have 4 apples
+
+# 'Python 3.6 버전 이상'에서는 f-string 사용을 권장!
+# : 현대적인 문자열 포맷팅 형식
+# - 중괄호 내에 직접적인 변수나 표현식을 넣어 쉽게 데이터 삽입
+# - 표현식을 지원: 문자열 내에서 변수, 연산자 사용 가능
+name = '이승아'
+height = 169.2
+print(f'My name is {name} and I am {height}cm tall') # My name is 이승아 and I am 169.2cm tall
+
+a = 5
+b = 3
+print(f'Five times three is {a * b}') # 곱하기 * # Five times three is 15
+# 줄 복사: ctrl + d
+print(f'Five times three is {a} * {b}') # Five times three is 5 * 3
+
+number = 7
+print(f'다음 숫자는 {number + 1}입니다.') # 다음 숫자는 8입니다.
+
+# f-string 소수점 자리 표현
+# : 중괄호 내에 :(콜론)을 사용하여 포맷 지정
+number = 3.14159
+print(f'소수점 두 번째 자리: {number:.2f}') # 소수점 두 자리: 3.14
+print(f'소수점 네 번째 자리: {number:.4f}') # 소수점 두 자리: 3.1416
