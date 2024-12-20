@@ -37,3 +37,37 @@ for i in range(10):
     if (i == 5):
         break
     print(i)
+
+while True:
+    user_input = input('종료하려면 q를 입력하세요: ') # q: quit
+    if user_input == 'q':
+        break
+
+# continue
+# : 현재 반복을 건너뛰고 다음 반복으로 넘어감
+# - 루프의 현재 반복의 나머지를 중지, while문의 조건을 다시 확인
+for i in range(10):
+    # 0부터 9까지 반복
+    if (i % 2 == 0):
+        # 짝수 출력 X
+        continue
+    print(i) # 홀수 만 출력
+
+# 중첩 for 문
+# : 하나의 for문 안에 다른 for문이 포함되어 있는 구조
+for i in range(3):
+    # i: 0, 1, 2
+    for j in range(2):
+        # j: 0, 1
+        print(i, j)
+
+# 2차원 중첩 배열을 중첩 for으로 출력
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+for row in matrix: # 첫 번째 배열의 각 요소(배열)
+    for number in row: # 내부 배열의 각 요소(숫자)
+        print(number)
