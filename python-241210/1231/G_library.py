@@ -52,3 +52,56 @@ print(date) # 2025-01-01
 time = datetime.time(11, 7, 10)
 print(time) # 11:07:10
 
+# 오늘 날짜 반환
+print(datetime.date.today()) # 2024-12-31
+
+# 3. os 모듈
+# : operate system (운영체제)와 상호작용하는 기능
+
+import os
+
+# 현재 작업 디렉터리(폴더) 확인
+print(os.getcwd()) # C:\python-1210\python-241210\1231
+
+# cf) cwd: current workspace directory: 현재 작업 폴더
+
+# 디렉터리 생성
+# mkdir: make directory
+
+# os.mkdir('practice')
+# : 한 번 생성한 폴더는 재생성 불가!
+# FileExistsError: [WinError 183] 파일이 이미 있으므로 만들 수 없습니다: 'practice'
+
+# 디렉터리 확인
+# listdir
+print(os.listdir())
+listDir = os.listdir()
+print(listDir)
+
+# 디렉터리 삭제
+# : 삭제하려는 디렉터리가 존재하지 않을 경우 오류 발생
+# rmdir: remove directory
+# os.rmdir('practice') - 제거 후에는 오류 발생
+
+if 'example' in os.listdir():
+    os.rmdir('example')
+else:
+    print('example 폴더가 없습니다.')
+
+# 4. random 모듈
+# : 난수(임의의 수)를 생성하는 기능을 제공
+# : 시퀀스를 무작위로 섞는 등의 작업을 수행
+
+import random
+
+print(random.random()) # 0.0과 0.1 사이의 실수 - 매개변수 X
+print(random.uniform(1, 10)) # 지정된 두 값 사이의 실수를 생성
+print(random.randint(1, 10)) # 지정된 두 값 사이의 정수를 생성
+
+# 시쿼스 활용 함수
+my_list = [1, 2, 3, 4, 5]
+random_list = random.choice(my_list) # 리스트의 요소를 무작위로 한가지 꺼내옴
+print(random_list)
+
+random.shuffle(my_list) # 리스트 내부의 요소를 무작위로 섞는 메서드
+print(my_list)
