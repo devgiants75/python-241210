@@ -91,4 +91,26 @@ print(np.sum(arr2)) # 넘파이 배열의 총합: np.sum(배열명) # 45
 #   > 검색 바에서 패키지 검색
 #   > 오른쪽 하단의 패키지 설치 버튼 클릭
 
+# == pandas의 DataFrame 생성 ==
 
+# DataFrame: 여러 개의 컬럼으로 구성된 2차원의 데이터 구조 (표)
+
+import pandas as pd
+
+# DataFrame 생성
+df = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': ['a', 'b', 'c']
+})
+print(df)
+
+# 데이터 엑세스: 특정 데이터 접근
+# column 접근 (세로)
+# : DataFrame[컬럼명]
+print('=== column 접근 ===')
+print(df['A'])
+
+# row 접근 (가로)
+# : DataFrame.loc[인덱스번호]
+print('=== row 접근 ===')
+print(df.loc[1])
