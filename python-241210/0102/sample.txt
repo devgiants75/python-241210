@@ -1,0 +1,3 @@
+Hello, World!
+Welcome to Python File I/O
+This is a new line.
