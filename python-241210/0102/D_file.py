@@ -65,11 +65,65 @@ file.close()
 with open('my_file.txt', 'wt') as file:
     print('my_file.txt 파일이 생성되었습니다.')
 
+### 파이썬 파일 출력 ###
 
+# 1. (텍스트 파일) 생성
+file = open('file_output.txt', 'wt')
 
+# write() 함수를 사용하여 파일에 내용을 작성
+file.write('Hello, this is a sample text file')
+file.close()
 
+# 2. (텍스트 파일) 내용 추가
+file = open('file_output.txt', 'a') # append 추가
+file.write('\n') # \n 줄바꿈
+file.write('This is additional text!')
+file.close()
 
+### 파일 입력(input) ###
+# r:read 모드를 사용하여 파일 열기
+# read() 함수 사용
 
+file = open('my_file.txt', 'a')
+file.write('Hello')
+file.close()
 
+file = open('my_file.txt', 'r', encoding='utf-8')
+content = file.read()
+print(content) # Hello
+file.close()
 
+# 인코딩
+# : 문자나 기호들을 컴퓨터에 저장하거나 전송할 수 있는 형태로 변환하는 과정
+# >> 0, 1(이진 데이터)로 변환하는 규칙
+# : utf-8 (유니코드 인코딩 방식) 사용 권장
+# : open()함수에 encoding='' 속성을 추가
 
+file = open('file_output.txt', 'r', encoding='utf-8')
+line = file.read()
+print(line)
+file.close()
+
+# 여러 줄 파일 읽어오기: readline() 함수 사용
+# : 각 줄 마다 반복 >> while 반복문
+
+file = open('file_output.txt', 'r', encoding='utf-8')
+while True:
+    line = file.readline() # 파일의 각 행을 가져옴
+    if not line:
+        break # line 변수가 비워져 있다면: 행이 끝남
+    print(line)
+
+file.close()
+
+print('== 모든 줄을 리스트로 읽기 ==')
+file = open('file_output.txt', 'r', encoding='utf-8')
+lines = file.readlines() # lines: 리스트
+
+for line in lines:
+    print(line)
+
+file.close()
+
+print(lines)
+# ['Hello, this is a sample text file\n', 'This is additional text!']
