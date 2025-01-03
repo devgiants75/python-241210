@@ -31,4 +31,16 @@ with open('dog-5357794_1280.jpg', 'rb') as source:
 
             copy.write(buffer)
 print('copy_dog.jpg 파일이 생성되었습니다.')
-            
+
+# 비디오 파일 복사
+# 240531_small.mp4
+video_size = 1024
+
+with open('240531_small.mp4', 'rb') as source:
+    with open('copy_video.mp4', 'wb') as copy:
+        while True:
+            buffer = source.read(video_size)
+            if not buffer: break
+            copy.write(buffer)
+
+print('copy_video.mp4 파일이 복사되었습니다.')
