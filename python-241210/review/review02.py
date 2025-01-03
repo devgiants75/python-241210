@@ -37,6 +37,9 @@ def recommend_movies(movie_ratings):
 
     # 딕셔너리명.values(): 값들이 리스트 형태로 반환
     highest_rating = max(movie_ratings.values())
+    # 사용자로부터 입력받은 영화이름과 평점을 리스트 형태로 가져와 movie, rating 변수에 담고
+    # , highest_rating과 동일한 점수는 movie 변수에 담아
+    # recommend_movies의 요소로 저장
     recommend_movies = [
         movie for movie, rating in movie_ratings.items() # 키와 값을 리스트 형태로 반환
         if rating == highest_rating
