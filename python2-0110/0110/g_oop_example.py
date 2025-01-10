@@ -32,3 +32,28 @@ student1.print_info() # 실제 데이터에서 기능 활용
 student2.print_info()
 # Name: 이승아, Grad: 3, ClassNumber: 2
 # Name: 이도경, Grad: 1, ClassNumber: 12
+
+#? 절차 지향 #
+# 1. 변수 선언
+number_list = [1, 2, 3, 4, 5]
+
+# 2. 함수 정의
+def sum_numbers(numbers):
+    total = 0
+    for number in numbers:
+        total += number
+    return total
+
+total_sum = sum_numbers(number_list)
+print(total_sum) # 15
+
+#? 객체 지향 #
+class NumberList:
+    def __init__(self, numbers):
+        self.numbers = numbers
+        
+    def sum_numbers(self):
+        return sum(self.numbers) # 리스트의 내장 함수
+    
+sum_value = NumberList([1, 2, 3, 4, 6])
+print(sum_value.sum_numbers()) # 16
