@@ -70,5 +70,18 @@ class LightBulb:
     
 # 클래스 사용
 print('===전구 예제===')
+print(f'초기 전구: {LightBulb.current_stock()}') # 초기 전구: 0
 
-    
+# 반복문을 사용하여 전구 5개를 생성
+# : for in 반복문 + range() 함수
+new_bulbs = [LightBulb() for _ in range(5)]
+
+print(f'전구 생성 후: {LightBulb.current_stock()}') # 전구 생성 후: 5
+
+LightBulb.sell_bulb()
+LightBulb.sell_bulb()
+
+print(f'전구 판매 후 {LightBulb.current_stock()}') # 전구 판매 후 3
+
+lifetime = LightBulb.calculate_lifttime(10000)
+print(f'전구의 수명: {lifetime:.2f}년') # 전구의 수명: 1.14년
