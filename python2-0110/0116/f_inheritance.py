@@ -50,4 +50,4 @@ child = ChildClass()
 
 parent.parent() # 해당 인스턴스의 클래스 내부에 정의된 parent() 메서드
 child.parent() # 상속받은 부모 클래스 내부에 정의된 parent() 메서드
-# >> 부모 클래스의 속성과 기능을 상속받음
+# >> 부모 클래스의 속성과 기능을 상속받음                                                                                        
