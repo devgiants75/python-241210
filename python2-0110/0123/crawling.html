@@ -1,0 +1,93 @@
+<!-- 
+    # 주석 단축키: ctrl + /
+
+    HTML 문서의 주석 형태
+    : 단일 주석, 여러 줄 주석 모두 같은 형태로 사용
+-->
+<!-- 단일 주석 -->
+
+<!-- 
+    ! HTML이란?
+    : HyperText Markup Language
+    >> 웹 문서의 단위
+-->
+
+<!-- HTML5임을 브라우저에게 알리는 선언문 -->
+<!DOCTYPE html>
+<!-- 
+    html 태그부터 실제 HTML 태그 요소
+    : 웹 브라우저를 구성하는 구조의 시작
+
+    cf) 웹 문서에서 인지하는 언어(구조)
+        : html 태그 내에서 반드시 작성!
+            태그는 열리는 태그와 닫히는 태그(태그명 앞에 /)로 구성
+            : html 태그의 하위 요소로 head 태그와 body 태그를 작성
+-->
+<!-- ko: Korean(한국어 사용 페이지) / en: English -->
+<html lang="ko">
+
+<!-- 웹 페이지의 메타 데이터(데이터의 정보)를 포함하는 부분 -->
+<head>
+    <!-- 한글 처리를 위한 meta 태그 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹 페이지의 제목으로 사용되는 요소 -->
+    <title>파이썬 웹 크롤링</title>
+</head>
+
+<body>
+    <!-- 
+    실제 웹 브라우저에서 보여지는 부분 
+    : 웹 문서를 브라우저에서 확인 - live server
+    >> live server 실행 단축키: alt + l + o
+    -->
+
+    안녕하세요 만나서 반갑습니다!
+    첫 번째 웹 문서 작업입니다 :)
+
+    <!-- 
+        제목 태그: hn - (n: 1 ~ 6) 숫자가 작을 수록 글자 크기가 커짐
+        ? 줄 복사 단축키: alt + shift + 위아래단축키
+    -->
+    <h1>제목1입니다.</h1>
+    <h2>제목2입니다.</h1>
+    <h3>제목3입니다.</h1>
+    <h6>제목6입니다.</h1>
+
+    <!-- 
+        단락 태그: 문단을 나타냄 p태그    
+    -->
+    <p>안녕하세요 만나서 반갑습니다!</p>
+    <p>첫 번째 웹 문서 작업입니다 :)</p>
+    웹 크롤링은 재밌어
+
+    web crawling is fun
+    <!-- 
+        div 태그: 특정 구역을 나타낼 때 사용
+    -->
+    <div>파이썬 저녁 강의</div>
+    <div>웹 크롤링 수업입니다.</div>
+    <div>div 태그</div>
+
+    <!--  
+        a 태그: 다른 페이지와 연결하는 하이퍼링크를 걸어주는 태그
+        : href 속성을 가짐 (연결할 웹 페이지의 url을 저장)
+
+        cf) a: anchor (닻)
+            href: hyper reference (하이퍼 참조)
+    -->
+    <a href="https://www.naver.com">네이버 바로가기</a>
+    <a href="https://github.com/devgiants75">깃허브로 이동해주세요</a>
+
+    <!-- 
+        HTML 요소의 구조
+        1. <div>: 시작 태그
+            - div: 태그 종류
+        2. class="crawling": 속성 이름 (태그를 나타내는 이름표)
+            id="unique": 속성 이름 (태그들 중 유일한 이름표)
+        3. 웹 크롤링 수업: 내용 (태그 사이에 입력되는 값)
+        4. </div>: 닫힘 태그
+    -->
+    <div class="crawling" id="unique">웹 크롤링 수업</div>
+</body>
+</html>
