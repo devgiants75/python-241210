@@ -7,7 +7,7 @@
 # 프로토콜://도메인:포트번호/경로
 
 # URL 예시
-# https://github.com/devgiants75/python-bt-240126
+# https://github.com/devgiants75
 
 # 프로토콜 (https)
 # : 하이퍼텍스트 문서를 전송할 때 사용하는 프로토콜(통신 규약)
@@ -20,5 +20,5 @@
 # : 서비스 접근 포트 (일반적으로 생략 가능)
 # : HTTP(80), HTTPS(443)
 
-# 경로(/devgiants75/python-bt-240126)
+# 경로(/devgiants75)
 # : 서버 내에서 자원의 정확한 위치
