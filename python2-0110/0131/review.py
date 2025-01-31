@@ -40,7 +40,8 @@
 # - 기본 GET 요청
 import requests 
 
-url = "데이터를 추출하고자 하는 페이지 URL"
+# url = "데이터를 추출하고자 하는 페이지 URL"
+url = 'https://example.com'
 response = requests.get(url) # GET 요청 수행
 
 # - HTTP 응답 코드 확인
