@@ -21,7 +21,7 @@ try:
     driver.get('https://www.youtube.com')
     
     # 페이지 로딩을 위한 대기 시간 설정 (2초)
-    time.sleep(2)
+    time.sleep(5)
     
     # 검색창 찾기
     # : HTML의 input 태그에서 name 속성이 'search_query'인 요소를 찾음
@@ -39,7 +39,7 @@ try:
     search_box.send_keys(Keys.RETURN)
     
     # 검색 결과 로딩을 위한 대기 시간 설정 (2초)
-    time.sleep(2)
+    time.sleep(5)
     
     # CSS 셀렉터를 사용하여 '#video-title' 아이디를 가진 요소를 모두 선택
     # By.CSS_SELECTOR의 경우 값에 id는 #을, class는 .를 붙여 작성
