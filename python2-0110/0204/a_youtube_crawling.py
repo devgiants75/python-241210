@@ -57,3 +57,36 @@ try:
 
 finally:
     driver.quit()
+    
+#! 웹 크롤링한 데이터를 활용하여 데이터 시각화
+# : matplotlib 라이브러리 사용
+
+#? 제목의 길이 계산
+# : titles 배열을 순회하여 각 제목을 title 변수에 담고
+#   , 제목의 길이를 title_lengths 변수의 요소로 저장
+title_lengths = [len(title) for title in titles]
+
+# 데이터 시각화
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+
+# 히스토그램(Histogram) 생성
+# : 막대 그래프와 유사한 그래프
+# - 데이터의 분포를 시각적으로 표현하는 그래프
+# >> 연속적인 데이터를 시각화 시 사용
+plt.hist(title_lengths, bins=10, edgecolor='black', alpha=0.7)
+# bins=10
+# : 데이터를 10개의 구간(bin)으로 나누어 히스토그램을 그림
+# alpha=0.7
+# : 막대의 투명도를 조절 (0은 완전 투명, 1은 완전 불투명)
+
+plt.title('Distribution of Video Title Lengths', fontsize=16)
+plt.xlabel('Title Length', fontsize=14)
+plt.ylabel('Frequency', fontsize=14)
+
+# y축에 그리드 추가 (점선 형태)
+# : 그래프의 보조선을 추가하는 함수
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.show()

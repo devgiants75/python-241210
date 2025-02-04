@@ -1,10 +1,23 @@
+# font-manager, rc는 폰트 설정 관련 기능을 제공
+from matplotlib import font_manager, rc
+# 그래프를 그릴 페이지 제작을 위한 기능 제공
+import matplotlib.pyplot as plt
+import matplotlib
+
+#& 폰트 경로 직접 지정 - 해당 코드 사용하여 에러가 날 경우 font 경로 수정 필수!!!
+font_path = 'C:\\Windows\\Fonts\\HMFMPYUN.TTF'
+
+# 폰트 이름 가져오기
+font_name = font_manager.FontProperties(fname=font_path).get_name()
+# matplotlib과 rc 함수를 사용해 폰트 설정
+matplotlib.rc('font', family=font_name)
 
 #! 문제 1: plot() 함수 사용하기
 # 문제 설명:
 # 주어진 데이터를 사용하여 시간에 따른 판매량 변화를 선 그래프로 표현해보세요.
 
-# 시간: [1, 2, 3, 4, 5]
-# 판매량: [3, 5, 2, 7, 9]
+# 시간 : [1, 2, 3, 4, 5]
+# 판매량 : [3, 5, 2, 7, 9]
 
 # 요구 사항:
 
