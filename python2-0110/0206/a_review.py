@@ -2,6 +2,12 @@
 
 ### matplotlib을 활용한 데이터 시각화 ###
 
+# Counter 모듈 사용
+# : 데이터의 빈도 수를 계산
+# : 이터러블(iterable, '리스트', '튜블', '문자열 ' 등) 데이터의 각 요소가 얼마나 자주 있는지 계산
+# > 변수 = Counter(이터러블 데이터)
+from collections import Counter
+
 # 포켓몬 데이터를 리스트로 정의
 pokemon_data = [
     (1, "이상해씨", "풀/독"), # 포켓몬 번호, 이름, 타입
