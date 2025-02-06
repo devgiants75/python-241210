@@ -37,3 +37,57 @@ pokemon_data = [
     (25, "피카츄", "전기"),
     (26, "라이츄", "전기")
 ]
+
+# 포켓몬 타입 데이터를 분리 > 모든 타입 리스트를 생성
+all_types = [] # 모든 타입을 담을 리스트 초기화
+
+for _, _, types in pokemon_data: # poketmon_data의 각 항목에서 타입 정보를 추출 ("독/비행")
+    type = types.split('/') # 슬래시('/')로 나뉜 타입을 리스트에 추가 (['독', '비행'])
+    all_types.extend(type) # 한 번에 여러 요소를 리스트에 추가(확장)
+    
+# types = ["풀/독", "풀/독", "풀/독", "불꽃", "불꽃", "불꽃/비행", ... , "전기", "전기"]
+# all_types = ["풀", "독", "풀", "독", "풀", "독", "불꽃", ... ... , "전기", "전기"]
+
+# append() VS extend()
+
+# append(): 리스트의 끝에 데이터를 그대로 삽입
+x = [1, 2]
+y = [3, 4]
+x.append(y) # [1, 2, [3, 4]]
+print(x)
+
+# extend(): 리스트의 끝에 해당 데이터의 '각' 항목을 삽입
+x = [1, 2]
+y = [3, 4]
+x.extend(y) # [1, 2, 3, 4]
+print(x)
+
+# 타입별 포켓몬 수 계산
+type_counts = Counter(all_types)
+print(type_counts)
+# Counter({'독': 10, '비행': 6, '벌레': 6, '노말': 5, '풀': 3, '불꽃': 3, '물': 3, '전기': 2})
+
+#! matplotlib 라이브러리 사용 - 그래프 생성 
+
+from matplotlib import font_manager, rc # 한글 폰트 설정
+import matplotlib.pyplot as plt 
+import matplotlib
+
+# 한글 폰트 경로 설정
+font_path = 'C:\\Windows\\Fonts\\H2PORM.TTF'
+font_name = font_manager.FontProperties(fname=font_path).get_name()
+matplotlib.rc('font', family=font_name)
+
+# 막대 그래프 데이터 #
+types = list(type_counts.keys()) # 타입 이름 리스트
+counts = list(type_counts.values()) # 타입별 포켓몬 수 리스트
+
+# 막대 그래프 생성 #
+plt.figure(figsize=(10, 6))
+plt.bar(types, counts, color='skyblue', edgecolor='black')
+plt.title('타입별 포켓몬 수', fontsize=16)
+plt.xlabel('포켓몬 타입', fontsize=12)
+plt.ylabel('포켓몬 수', fontsize=12)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.show()
