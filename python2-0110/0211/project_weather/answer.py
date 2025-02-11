@@ -55,8 +55,23 @@ class WeatherDataManager:
 class WeatherVisualization:
     @staticmethod
     def visulaize(data):
-        city_names = set(row[0] for row in data)
+        city_names = set(row[0] for row in data) # 데이터에 도시 이름을 추출 (중복 X)
         
+        for city in city_names:
+            # 순회되고 있는 데이터 중 현재에 해당하는 도시의 데이터만 필터링
+            city_data = [row for row in data if row[0] == city]
+            
+            dates = [row[1] for row in city_data] # 날짜 리스트만 추출
+            max_temps = [float(row[2]) for row in city_data]
+            min_temps = [float(row[3]) for row in city_data]
+            
+            plt.plot(dates, max_temps, label=f'{city} Max Temp')
+            plt.plot(dates, min_temps, label=f'{city} Min Temp')
+            
+        plt.xlable('Date')
+        plt.ylabel('Temperature')
+        plt.legend()
+        plt.show()
         
 #! 프로그램 실행 함수 정의
 def main():
