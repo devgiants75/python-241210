@@ -68,7 +68,7 @@ class WeatherVisualization:
             plt.plot(dates, max_temps, label=f'{city} Max Temp')
             plt.plot(dates, min_temps, label=f'{city} Min Temp')
             
-        plt.xlable('Date')
+        plt.xlabel('Date')
         plt.ylabel('Temperature')
         plt.legend()
         plt.show()
@@ -104,7 +104,7 @@ def main():
             date = input('날짜를 입력하세요. (YYYY-MM-DD)')
             
             weather_manager.delete_data(city_name, date)
-        elif command == ' visualize':
+        elif command == 'visualize':
             data = weather_manager._load_data() # CSV 데이터 로드
             WeatherVisualization.visulaize(data)
         elif command == 'exit':
