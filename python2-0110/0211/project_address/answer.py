@@ -1,5 +1,7 @@
 # answer.py
 
+import sys # 프로그램 종료 시 사용되는 sys 모듈
+
 #! Person 클래스 
 # : 각 개인의 정보를 저장할 클래스
 # : 이름(name), 전화번호(phone), 주소(address)
@@ -58,4 +60,78 @@ class AddressBook:
                     # 리스트에 추가
                     self.address_list.append(Person(name, phone, address))
             print('addressBook.csv 파일을 로드하였습니다.')
+            file.close() # 파일 닫기
+            
+    # file_generator() 메서드
+    # : address_list 리스트의 데이터를 사용하여 새로운 csv 파일 생성
+    def file_generator(self):
+        try:
+            file = open('addressBook.csv', 'wt', encoding='utf-8')
+            
+        except:
+            print('addressBook.csv 파일을 생성할 수 없습니다.')
+            
+        else:
+            # 리스트에 있는 모든 주소록 데이터를 파일에 저장
+            for person in self.address_list:
+                file.write(f'{person.name},{person.phone},{person.address}\n')
             file.close()
+            
+    # menu() 메서드 (정적 메서드 - @staticmethod)
+    # : 프로그램에서 수행할 작업 목록을 출력하고 사용자의 선택을 입력받음
+    @staticmethod
+    def menu():
+        print('-' * 30)
+        print('1. 신규 주소록 등록')
+        print('2. 기존 주소록 수정')
+        print('3. 기존 주소록 삭제')
+        print('4. 주소록 검색')
+        print('5. 전체 주소록 출력')
+        print('0. 프로그램 종료')
+        print('-' * 30)
+        
+        choice = int(input('수행할 작업을 숫자로 입력하세요: '))
+        return choice # 입력값 반환
+    
+    # exit() 메서드
+    # : 프로그램을 종료하는 기능 수행
+    # : sys 모듈의 exit() 메서드를 호출
+    def exit(self):
+        print('프로그램을 종료합니다.')
+        sys.exit()
+        
+    # run() 메서드
+    # : 프로그램 실행 (메뉴 출력 & 사용자의 입력값에 따라 기능 실행(각 메서드 호출))
+    def run(self):
+        while True:
+            choice = AddressBook.menu()  # 정적메서드 호출: 클래스명.메서드명()
+            if choice == 0: self.exit()
+            elif choice == 1: self.insert()
+            elif choice == 2: self.update()
+            elif choice == 3: self.delete()
+            elif choice == 4: self.search()
+            elif choice == 5: self.print_all()
+            else: print('없는 번호입니다. 확인 후 다시 입력해주세요.')
+            
+    # insert() 메서드: 새로운 주소록 정보 추가
+    def insert(self):
+        print('== 신규 주소록 생성 ==')
+        name = input('등록할 이름 입력: ')
+        phone = input('등록할 전화번호 입력: ')
+        address = input('등록할 주소 입력: ')
+        
+        if name and phone and address:
+            # 모든 값이 입력된 경우
+            self.address_list.append(Person(name, phone, address))
+            self.file_generator() # 파일 업데이트
+            print('신규 주소록이 정상적으로 생성되었습니다.')
+        else:
+            print('입력값이 부족하여 주소록이 생성되지 않았습니다.')
+    
+    # update() 메서드: 입력한 이름의 전화번호 & 주소 수정
+    
+    # delete() 메서드: 입력한 이름을 주소록에서 찾아 삭제
+    
+    # search() 메서드: 입력한 이름의 주소록을 출력
+    
+    # print_all() 메서드: 전체 주소록 정보를 출력
