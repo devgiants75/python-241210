@@ -129,9 +129,88 @@ class AddressBook:
             print('입력값이 부족하여 주소록이 생성되지 않았습니다.')
     
     # update() 메서드: 입력한 이름의 전화번호 & 주소 수정
+    def update(self):
+        print('== 기존 주소록 수정 ==')
+        name = input('수정할 이름 입력: ')
+        if not name:
+            print('입력된 이름이 없어 수정을 취소합니다.')
+            return
+        
+        updated = False # 수정 완료 유무를 담는 변수
+        
+        for person in self.address_list:
+            if name == person.name:
+                print(f'검색된 전화번호: "{person.phone}"')
+                if input('수정할까요? (Y/N) : ').upper() != 'Y':
+                    continue # 동명이인이지만 수정하고자 하는 데이터가 아닌 경우
+                
+                new_phone = input('변경할 전화번호 입력: ')
+                if new_phone: person.phone = new_phone
+                
+                new_address = input('변경할 주소 입력: ')
+                if new_address: person.address = new_address
+                
+                updated = True
+                print('주소록이 변경되었습니다.')
+                person.info()
+                self.file_generator()
+                break
+            
+        if not updated:
+            print(f'{name}의 정보가 수정되지 않았습니다.')         
     
     # delete() 메서드: 입력한 이름을 주소록에서 찾아 삭제
+    def delete(self):
+        print('== 기존 주소록 삭제 ==')
+        name = input('삭제할 이름 입력: ')
+        if not name:
+            print('입력한 이름이 없어 삭제할 수 없습니다.')
+            return
+        
+        deledted = False
+        
+        # enumerate() 함수
+        # : 파이썬 내장 함수
+        # - 순회 가능한 iterable의 각 원소와 그 원소의 인덱스를 튜플로 묶어서 반환
+        for i, person in enumerate(self.address_list):
+            if name == person.name:
+                print(f'검색된 전화번호: "{person.phone}"')
+                if input('삭제할까요? (Y/N) : ').upper() != 'Y':
+                    continue
+                
+                del self.address_list[i] # 리스트에서 삭제
+                deleted = True
+                print(f'{name}의 정보를 삭제했습니다.')
+                self.file_generator()
+                break
+            
+        if not deleted:
+            print(f'{name}의 정보가 삭제되지 않았습니다.')
     
     # search() 메서드: 입력한 이름의 주소록을 출력
+    def search(self):
+        print('== 주소록 검색 ==')
+        name = input('찾을 이름을 입력: ')
+        if not name:
+            print('입력한 이름이 없어서 검색을 취소합니다.')
+            return
+        
+        existed = False
+        
+        for person in self.address_list:
+            if name == person.name:
+                person.info()
+                existed = True
+        if not existed:
+            print(f'{name}의 정보가 없습니다.')
     
     # print_all() 메서드: 전체 주소록 정보를 출력
+    def print_all(self):
+        print('== 전체 연락처 출력 ==')
+        for person in self.address_list:
+            person.info()
+        print(f'총 {len(self.address_list)}개의 주소록이 있습니다.')
+        
+# 프로그램 실행
+my_app = AddressBook()
+my_app.run()
